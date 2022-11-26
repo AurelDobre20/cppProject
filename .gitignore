@@ -294,6 +294,8 @@ _Pvt_Extensions
 
 # Paket dependency manager
 .paket/paket.exe
+
+
 paket-files/
 
 # FAKE - F# Make
@@ -348,3 +350,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Add aditional solution VS files
+*.sln
+*.vcxproj
+*.vcxproj.filters
