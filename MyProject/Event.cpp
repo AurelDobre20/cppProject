@@ -50,4 +50,45 @@ public:
 		return this->name;
 	}
 
+	friend ostream& operator<< (ostream& out, Event e) {
+
+		out << "Event name: ";
+
+		out << e.name<<endl;
+
+
+		out << "Event time: ";
+
+		out << e.time << endl ;
+
+
+		out << "Event date: ";
+
+		out << e.date << endl ;
+
+		return out;
+
+	}
+
+	friend istream& operator>> (istream& in, Event& e)
+	{
+		cout << "Event name: ";
+		string buffer;
+		in >> buffer;
+		e.setName(buffer);
+
+		cout<<endl << "Event time: ";
+		string buffer1;
+		in >> buffer1;
+		e.setTime(buffer1);
+
+		cout <<endl<< "Event date: ";
+		string buffer2;
+		in >> buffer2;
+		e.setDate(buffer2);
+
+		return in;
+	}
+
 };
+
