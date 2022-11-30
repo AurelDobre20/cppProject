@@ -1,5 +1,6 @@
 #include<iostream>
 #include"Event.cpp"
+#include"EventLocation.cpp"
 
 using namespace std;
 
