@@ -1,6 +1,8 @@
 #include<iostream>
 #include<String>
 
+
+
 using namespace std;
 
 class Event {
@@ -52,6 +54,8 @@ public:
 
 	friend ostream& operator<< (ostream& out, Event e) {
 
+		out << "------------------" << endl;
+
 		out << "Event name: ";
 
 		out << e.name<<endl;
@@ -66,6 +70,8 @@ public:
 
 		out << e.date << endl ;
 
+		out << "------------------" << endl;
+
 		return out;
 
 	}
@@ -77,12 +83,12 @@ public:
 		in >> buffer;
 		e.setName(buffer);
 
-		cout<<endl << "Event time: ";
+		cout << "Event time: ";
 		string buffer1;
 		in >> buffer1;
 		e.setTime(buffer1);
 
-		cout <<endl<< "Event date: ";
+		cout << "Event date: ";
 		string buffer2;
 		in >> buffer2;
 		e.setDate(buffer2);
