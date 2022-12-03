@@ -67,7 +67,9 @@ public:
 	}
 
 	void setMaxNoSeats(int noSeats) {
-		this->maxNoSeats = noSeats;
+		if (noSeats > 0) {
+			this->maxNoSeats = noSeats;
+		}
 	}
 
 	int getNoRow() {
@@ -75,15 +77,19 @@ public:
 	}
 
 	void setNoRow(int noRow) {
-		this->noRow = noRow;
+		if (noRow>0) {
+			this->noRow = noRow;
+		}
 	}
 
 	string getPlace() {
 		return this->place;
 	}
 
-	void setPlace(int place) {
-		this->place = place;
+	void setPlace(string place) {
+		if (place.length() > 0) {
+			this->place = place;
+		}
 	}
 
 	char* getZones() {
