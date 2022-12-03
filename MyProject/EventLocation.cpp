@@ -78,6 +78,14 @@ public:
 		this->noRow = noRow;
 	}
 
+	string getPlace() {
+		return this->place;
+	}
+
+	void setPlace(int place) {
+		this->place = place;
+	}
+
 
 };
 
