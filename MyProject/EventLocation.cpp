@@ -34,7 +34,10 @@ public:
 		}
 	}
 
-
+	~EventLocation() {
+		delete[] zones;
+		zones = nullptr;
+	}
 
 
 };
