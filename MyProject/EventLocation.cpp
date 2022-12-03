@@ -50,10 +50,10 @@ public:
 
 	}
 
-	void getEventName() {
-		cout<<endl<<this->eventName.getDate();
-		cout << endl << this->eventName.getName();
-		cout << endl << this->eventName.getTime();
+	void getEventName() { 
+		cout<<endl<< "Event date: " << this->eventName.getDate();
+		cout << endl << "Event name: "<<this->eventName.getName();
+		cout << endl << "Event time: " << this->eventName.getTime()<<endl;
 	}
 
 	void setEventName(string date, string time, string name) {
@@ -108,6 +108,75 @@ public:
 		}
 	}
 
+	friend ostream& operator<< (ostream& out, EventLocation eL) {
+
+		out << "------------------" << endl;
+
+		out << "Event name: ";
+		out << eL.eventName.getName() << endl;
+
+
+		out << "Event time: ";
+		out << eL.eventName.getTime() << endl;
+
+
+		out << "Event date: ";
+		out << eL.eventName.getDate() << endl;
+		
+
+		out << "No. of seats: ";
+		out << eL.maxNoSeats << endl;
+
+		out << "No. of rows: ";
+		out << eL.noRow << endl;
+
+		out << "Place: ";
+		out << eL.place << endl;
+
+		out << "Zone: ";
+
+		if (eL.zones != nullptr) {
+			out << eL.zones<<endl;
+		}
+
+		out << "------------------" << endl;
+
+		return out;
+
+	}
+
+	friend istream& operator>> (istream& in, EventLocation& eL)
+	{
+		cout << "Event name: ";
+		string buffer;
+		in >> buffer;
+		eL.eventName.setName(buffer);
+
+		cout << "Event time: ";
+		in >> buffer;
+		eL.eventName.setTime(buffer);
+
+		cout << "Event date: ";
+		in >> buffer;
+		eL.eventName.setDate(buffer);
+
+		cout << "Event place: ";
+		in >> buffer;
+		eL.setPlace(buffer);
+
+		cout << "No. of seats: ";
+		in >> eL.maxNoSeats;
+
+		cout << "No. of rows: ";
+		in >> eL.noRow;
+		
+		cout << "Zone: ";
+		in >> buffer;
+		eL.setZones(buffer.c_str());
+
+
+		return in;
+	}
 
 };
 
