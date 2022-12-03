@@ -62,6 +62,14 @@ public:
 		this->eventName.setName(name);
 	}
 
+	int getMaxNoSeats() {
+		return this->maxNoSeats;
+	}
+
+	void setMaxNoSeats(int noSeats) {
+		this->maxNoSeats = noSeats;
+	}
+
 
 };
 
