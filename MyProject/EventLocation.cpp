@@ -86,6 +86,22 @@ public:
 		this->place = place;
 	}
 
+	char* getZones() {
+		if (this->zones != nullptr) {
+			char* copy = new char[strlen(this->zones) + 1];
+			strcpy_s(copy, strlen(this->zones) + 1, this->zones);
+			return copy;
+		}
+		return nullptr;
+	}
+
+	void setZones(const char* zones) {
+		if (zones != nullptr) {
+			this->zones = new char[strlen(zones) + 1];
+			strcpy_s(this->zones, strlen(zones) + 1, zones);
+		}
+	}
+
 
 };
 
