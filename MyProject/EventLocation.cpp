@@ -70,6 +70,14 @@ public:
 		this->maxNoSeats = noSeats;
 	}
 
+	int getNoRow() {
+		return this->maxNoSeats;
+	}
+
+	void setNoRow(int noRow) {
+		this->noRow = noRow;
+	}
+
 
 };
 
