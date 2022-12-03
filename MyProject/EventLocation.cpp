@@ -39,6 +39,17 @@ public:
 		zones = nullptr;
 	}
 
+	EventLocation(const EventLocation& eL){
+		this->noRow = eL.noRow;
+		this->maxNoSeats = eL.maxNoSeats;
+		this->place = eL.place;
+		if (eL.zones != nullptr) {
+			this->zones = new char[strlen(eL.zones) + 1];
+			strcpy_s(this->zones, strlen(eL.zones) + 1, eL.zones);
+		}
+
+	}
+
 
 };
 
