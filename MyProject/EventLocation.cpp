@@ -50,6 +50,18 @@ public:
 
 	}
 
+	void getEventName() {
+		cout<<endl<<this->eventName.getDate();
+		cout << endl << this->eventName.getName();
+		cout << endl << this->eventName.getTime();
+	}
+
+	void setEventName(string date, string time, string name) {
+		this->eventName.setDate(date);
+		this->eventName.setTime(time);
+		this->eventName.setName(name);
+	}
+
 
 };
 
