@@ -178,5 +178,50 @@ public:
 		return in;
 	}
 
+	void operator=(const EventLocation& eL) {
+
+		
+		if (this == &eL) {
+			
+			return;
+		}
+		this->eventName = eL.eventName;
+		this->place = eL.place;
+		this->noRow = eL.noRow;
+		this->maxNoSeats = eL.maxNoSeats;
+
+		if (this->zones) {
+			delete[] this->zones;
+			this->zones = nullptr;
+		}
+
+		if (eL.zones != nullptr) {
+
+			this->zones = new char[strlen(eL.zones) + 1];
+			memcpy(this->zones,
+				eL.zones,
+				strlen(eL.zones) + 1);
+		}
+		else {
+			this->zones = nullptr;
+		}
+
+	}
+
+	EventLocation operator+(int no)
+	{
+		EventLocation result = *this;
+		result.noRow += no;
+		return result;
+	}
+
+	EventLocation operator-(int no)
+	{
+		EventLocation result = *this;
+		result.noRow -= no;
+		return result;
+	}
+
+
 };
 
