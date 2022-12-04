@@ -108,6 +108,12 @@ public:
 		}
 	}
 
+	int calculateNoOfSeatsPerRow() {
+		int result = this->maxNoSeats / this->noRow;
+		return result;
+
+	}
+
 	friend ostream& operator<< (ostream& out, EventLocation eL) {
 
 		out << "------------------" << endl;
