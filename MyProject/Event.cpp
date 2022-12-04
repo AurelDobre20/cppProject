@@ -96,5 +96,10 @@ public:
 		return in;
 	}
 
+	void displayTheEventDetails() {
+		cout << "The event name is " + this->name + " it will take place on " + this->date + " at the time " + this->time << endl;
+		
+	}
+
 };
 
