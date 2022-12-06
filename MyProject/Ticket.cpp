@@ -40,6 +40,19 @@ public:
 		this->lawn = lawn;
 	}
 
+	Ticket(const Ticket& t):id(id) {
+		this->VIP = t.VIP;
+		if (t.boxes != nullptr && t.noBoxes > 0) {
+			this->boxes = new int[t.noBoxes];
+			for (int i = 0; i < t.noBoxes; i++) {
+				this->boxes[i] = t.boxes[i];
+			}
+		}
+		this->noBoxes = t.noBoxes;
+		this->tribune = t.tribune;
+		this->lawn = t.lawn;
+	}
+
 	~Ticket() {
 		delete[] boxes;
 		boxes = nullptr;
@@ -93,6 +106,8 @@ public:
 			return "Lawn 3";
 		}
 	}
+
+
 
 
 
