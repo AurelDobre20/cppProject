@@ -55,6 +55,27 @@ public:
 		this->lawn = t.lawn;
 	}
 
+	Ticket operator=(Ticket& t) {
+		if (this == &t) {
+			return;
+		}
+		if (this->boxes != nullptr) {
+			delete[] boxes;
+		}
+		this->VIP = t.VIP;
+		if (t.boxes != nullptr && t.noBoxes > 0) {
+			this->boxes = new int[t.noBoxes];
+			for (int i = 0; i < t.noBoxes; i++) {
+				this->boxes[i] = t.boxes[i];
+			}
+		}
+		this->noBoxes = t.noBoxes;
+		this->tribune = t.tribune;
+		this->lawn = t.lawn;
+		return *this;
+	
+	}
+
 	~Ticket() {
 		delete[] boxes;
 		boxes = nullptr;
@@ -229,4 +250,4 @@ public:
 
 };
 
-const float Ticket::TICKER_PRICE = 55.5;
+

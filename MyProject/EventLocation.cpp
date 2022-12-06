@@ -116,7 +116,7 @@ public:
 
 	friend ostream& operator<< (ostream& out, EventLocation eL) {
 
-		out << "------------------" << endl;
+		out <<endl<< "------------------" << endl;
 
 		out << "Event name: ";
 		out << eL.eventName.getName() << endl;
