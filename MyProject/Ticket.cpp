@@ -40,6 +40,11 @@ public:
 		this->lawn = lawn;
 	}
 
+	~Ticket() {
+		delete[] boxes;
+		boxes = nullptr;
+	}
+
 
 
 
