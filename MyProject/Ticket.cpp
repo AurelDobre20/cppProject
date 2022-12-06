@@ -18,6 +18,8 @@ private:
 	int* boxes;
 	int noBoxes;
 public:
+	static const float TICKER_PRICE;
+
 	Ticket():id(0) {
 		this->VIP = false;
 		this->boxes = nullptr;
@@ -27,7 +29,7 @@ public:
 
 	}
 
-	Ticket(bool VIP, LAWN lawn, int tribune, int* boxes, int noBoxes):id(id) {
+	Ticket(int id, bool VIP, LAWN lawn, int tribune, int* boxes, int noBoxes):id(id) {
 		this->VIP = VIP;
 		if (boxes != nullptr && noBoxes > 0) {
 			this->boxes = new int[noBoxes];
@@ -40,7 +42,7 @@ public:
 		this->lawn = lawn;
 	}
 
-	Ticket(const Ticket& t):id(id) {
+	Ticket(const Ticket& t):id(t.id) {
 		this->VIP = t.VIP;
 		if (t.boxes != nullptr && t.noBoxes > 0) {
 			this->boxes = new int[t.noBoxes];
@@ -58,6 +60,10 @@ public:
 		boxes = nullptr;
 	}
 
+	static float getPrice() {
+		return Ticket::TICKER_PRICE;
+	}
+	
 	int getId() {
 		return this->id;
 	}
@@ -107,6 +113,113 @@ public:
 		}
 	}
 
+	friend ostream& operator<< (ostream& out, Ticket t) {
+
+		out << "------------------" << endl;
+
+		out << "Ticket id: ";
+		out << t.id << endl;
+
+
+		out << "Ticket lawn: ";
+		if (t.lawn == 1) {
+			out <<"Lawn 1"<<endl;
+		}
+		if (t.lawn == 2) {
+			out << "Lawn 2"<<endl;
+		}
+		if (t.lawn == 3) {
+			out << "Lawn 3"<<endl;
+		}
+
+
+		if (t.boxes != nullptr && t.noBoxes > 0) {
+			out << endl << "No. of boxes: " << t.noBoxes << endl;
+			for (int i = 0; i < t.noBoxes; i++) {
+				out << "Box no: " <<i+1<<" has "<< t.boxes[i] <<" seats." << " ";
+			}
+			
+		}
+
+
+		out <<endl<< "Ticket tribune: ";
+		out << t.tribune << endl;
+		out << "------------------" << endl;
+
+		
+
+		return out;
+
+	}
+
+	friend istream& operator>> (istream& in, Ticket& t)
+	{
+		
+
+
+		
+		int no = 0;
+
+
+
+		cout <<endl<< "Ticket lawn: ";
+		in >> no;
+
+		if (t.lawn == 1) {
+			
+			in >>no ;
+			t.setLawn(no);
+		}
+		if (t.lawn == 2) {
+			in >> no;
+			t.setLawn(no);
+		}
+		if (t.lawn == 3) {
+			in >> no;
+			t.setLawn(no);
+		}
+
+		cout << endl << "No. of boxes: ";
+		in >> no;
+		
+
+
+		if (no >0) {
+			t.boxes = new int[no];
+			for (int i = 0; i < no; i++) {
+				cout << "Box no " << i + 1 << ": ";
+				in >> t.boxes[i];
+			}
+
+		}
+
+
+		cout << endl << "Ticket tribune: ";
+		in >> t.tribune;
+		
+
+
+		return in;
+	}
+
+
+	bool operator!() {
+		if (this->VIP) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	bool operator==(Ticket t) {
+		if (this->lawn == t.lawn) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 
@@ -115,3 +228,5 @@ public:
 
 
 };
+
+const float Ticket::TICKER_PRICE = 55.5;
