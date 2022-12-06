@@ -101,5 +101,23 @@ public:
 		
 	}
 
+	bool operator>(Event e) {
+		if (this->name.length() > e.name.length()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	bool operator<(Event e) {
+		if (this->name.length() < e.name.length()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 };
 
