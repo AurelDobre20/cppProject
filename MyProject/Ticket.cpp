@@ -57,7 +57,7 @@ public:
 
 	Ticket operator=(Ticket& t) {
 		if (this == &t) {
-			return;
+			return *this;
 		}
 		if (this->boxes != nullptr) {
 			delete[] boxes;
